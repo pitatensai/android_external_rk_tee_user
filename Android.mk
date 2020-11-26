@@ -20,10 +20,18 @@ OPTEE_CLIENT_PATH ?= $(LOCAL_PATH)/client_export
 
 include $(TA_DEV_KIT_DIR)/host_include/conf.mk
 
+ifeq (1,$(strip $(shell expr $(PLATFORM_VERSION) \>= 11)))
+ifeq ($(strip $(TARGET_ARCH)), arm64)
+	CLIENT_LIB_PATH ?= $(shell pwd)/hardware/rockchip/optee/v2/arm64
+else
+	CLIENT_LIB_PATH ?= $(shell pwd)/hardware/rockchip/optee/v2/arm
+endif
+else
 ifeq ($(strip $(TARGET_ARCH)), arm64)
 	CLIENT_LIB_PATH ?= $(shell pwd)/vendor/rockchip/common/security/optee/v2/lib/arm64
 else
 	CLIENT_LIB_PATH ?= $(shell pwd)/vendor/rockchip/common/security/optee/v2/lib/arm
+endif
 endif
 
 ################################################################################
