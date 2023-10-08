@@ -6,8 +6,3 @@ linux对ta重新签名的命令：
 ./resign_ta.py --key oem_privkey.pem --in 8cccf200-2450-11e4-abe20002a5d5c52c.ta
 ./resign_ta.py --key oem_privkey.pem --in 8cccf200-2450-11e4-abe2-0002a5d5c52c.ta
 
-window工具
-执行ta_resign_tool.exe
-选择TA文件
-选择oem_prikey.pem密钥文件
-点击'签名'
